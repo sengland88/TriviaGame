@@ -1,0 +1,80 @@
+    {question: "Which intern was pregnant at age 16?",
+        answers: [
+            {a1: "Meredith Grey", value: false},
+            {a2: "Lexi Grey", value: false}, 
+            {a3: "Isabell Stevens", value: true}, 
+            {a4: "Miranda Bailey", value: false}
+        ]
+    },
+    {question: "What was the name of the first episode?",
+        answers: [
+            {a1: "'Band-aid Covers the Bullet Hole'", value: false},
+            {a2: "'A Hard Day's Night'", value: true}, 
+            {a3: "The First Cut is the Deepest", value: false}, 
+            {a4: "Raindrop Keeps Falling on My Head", value: false}
+        ]
+    },
+    {question: "What is the name of the hospital Meredith works?",
+        answers: [
+            {a1: "Mercy West", value: false},
+            {a2: "Seattle West", value: false}, 
+            {a3: "Mercy Grace", value: false}, 
+            {a4: "Seattle Grace", value: false}
+        ]
+    },
+    {question: "What is the name of the bar the doctors hang out in?",
+        answers: [
+            {a1: "Emerald City Bar", value: true},
+            {a2: "Southern Nights", value: false}, 
+            {a3: "Ember", value: false}, 
+            {a4: "The Lodge", value: false}
+        ]
+    },
+    {question: "Who left Cristina Yang at the alter?",
+        answers: [
+            {a1: "Derek Shepherd", value: false},
+            {a2: "Preston Burke", value: true}, 
+            {a3: "George O'Malley", value: false}, 
+            {a4: "Alex Karev", value: false}
+        ]
+    },
+    {question: "What is the name that Alex Karev gives the woman he saved from the ferry accident?",
+        answers: [
+            {a1: "Reed", value: false},
+            {a2: "Rebecca", value: false}, 
+            {a3: "Miranda", value: false}, 
+            {a4: "Ava", value: true}
+        ]
+    },
+    {question: "Finish this phrase: You will always be my _______.",
+        answers: [
+            {a1: "Lover", value: false},
+            {a2: "Friend", value: false}, 
+            {a3: "Person", value: true}, 
+            {a4: "Wife", value: false}
+        ]
+    },
+    {question: "What is the name that Alex Karev gives the woman he saved from the ferry accident?",
+        answers: [
+            {a1: "'It’s a beautiful day to save lives.'", value: true},
+            {a2: "'You will always be my person.'", value: false}, 
+            {a3: "'Pick me. Choose me. Love me.'", value: false}, 
+            {a4: "'You were like coming up for fresh air.'", value: false}
+        ]
+    },
+    {question: "What nickname do the interns give Derek Shephard?",
+        answers: [
+            {a1: "McDreamy", value: true},
+            {a2: "McSteamy", value: false}, 
+            {a3: "McHottie", value: false}, 
+            {a4: "McBitchy", value: false}
+        ]
+    },
+    {question: "What is Meredith Grey’s sister’s name? ",
+        answers: [
+            {a1: "Ellis Grey", value: false},
+            {a2: "Courtney Grey", value: false}, 
+            {a3: "Lexie Grey", value: true}, 
+            {a4: "Rebecca Grey", value: false}
+        ]
+    }
