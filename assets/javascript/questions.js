@@ -16,7 +16,7 @@ let triviaQuestions = [
     },
 
     {question: "What was the name of the first episode?",
-        answers: ["'Band-aid Covers the Bullet Hole'", "'A Hard Day's Night'" , "The First Cut is the Deepest" ,                "Raindrop Keeps Falling on My Head"], 
+        answers: ["'Band-aid Covers the Bullet Hole'", "'A Hard Day's Night'" , "'The First Cut is the Deepest'" ,  "'Raindrop Keeps Falling on My Head'"], 
         theAnswer: 1,
     },
 
@@ -46,7 +46,7 @@ let triviaQuestions = [
     },
 
     {question: "What is the name that Alex Karev gives the woman he saved from the ferry accident?",
-        answers: ["'It’s a beautiful day to save lives.'", "'You will always be my person.'", "'Pick me. Choose me.             Love me.'", "'You were like coming up for fresh air.'"],
+        answers: ["'It’s a beautiful day to save lives.'", "'You will always be my person.'", "'Pick me. Choose me. Love me.'", "'You were like coming up for fresh air.'"],
         theAnswer: 0,
     },
 
