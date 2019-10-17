@@ -1,149 +1,151 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
-let theQuestion = 0
-let correctAnswers = 0
-let incorrectAnswers = 0
-let unansweredQuestions = 0
-// let questionSeconds = 20
-// var questionCounter
-let gameStart = false
+  hideText()
 
-$(".answer").on("click", questionHandler)
 
-$(".button").on("click" , function() {
-    console.log("you clicked the start button")   
-    gameStart = true 
-    questionGenerator()
-})
+  let theQuestion = 0;
+  let correctAnswers = 0;
+  let incorrectAnswers = 0;
+  let unansweredQuestions = 0;
+  let gameStart = false;
 
-function questionGenerator() {    
+
+  $(".button").show();
+ 
+  $(".answer").on("click", questionHandler);
+
+  $(".button").on("click", function() {
+    // console.log("you clicked the start button");
+    gameStart = true;
+    questionGenerator();
+  });
+
+  function questionGenerator() {
+    questionChecker();
 
     if (gameStart) {
+        showText();        
+        theTimer(5);
+        $(".image").html(" ")
+        $(".button").hide()
+        $(".theResult").hide()
+        $(".question").html(triviaQuestions[theQuestion].question);
+        $(".answerOne").html(triviaQuestions[theQuestion].answers[0]);
+        $(".answerTwo").html(triviaQuestions[theQuestion].answers[1]);
+        $(".answerThree").html(triviaQuestions[theQuestion].answers[2]);
+        $(".answerFour").html(triviaQuestions[theQuestion].answers[3]);
+    }
+  }
 
-        showText()
-        theTimer(20)
-
-        $(".question").html(triviaQuestions[theQuestion].question)
-        console.log(triviaQuestions[theQuestion].question)
-    
-        $(".answerOne").html(triviaQuestions[theQuestion].answers[0])
-        $(".answerTwo").html(triviaQuestions[theQuestion].answers[1])
-        $(".answerThree").html(triviaQuestions[theQuestion].answers[2])
-        $(".answerFour").html(triviaQuestions[theQuestion].answers[3])   
-    }    
-}
-
-function questionHandler() {
+  function questionHandler() {
+    clearInterval(interval);
+    questionChecker();
 
     if (gameStart === false) {
-        return
+      return false;
     }
 
-    let answerIndex = parseInt($(this).attr("value")) 
-    console.log(`${answerIndex} is answer index`)
+    let answerIndex = parseInt($(this).attr("value"));
+    // console.log(`${answerIndex} is answer index`);
     // return false
-       
+
     if (answerIndex === triviaQuestions[theQuestion].theAnswer) {
-        console.log("correct!")
-        correctAnswers++
-        cutePopUp()
-        console.log(`you have ${correctAnswers} correct answers in the game`)      
+    //   console.log("correct!");
+      correctAnswers++;
+      cutePopUp();
+    //   console.log(`you have ${correctAnswers} correct answers in the game`);
     } else {
-        console.log("incorrect!")
-        incorrectAnswers++        
-        uglyPopUp()
-        console.log(`you have ${incorrectAnswers} incorrect answers in the game`)
-    }    
-        
-}
+    //   console.log("incorrect!");
+      incorrectAnswers++;      
+      uglyPopUp();
+    //   console.log(`you have ${incorrectAnswers} incorrect answers in the game`);
+    }
+  }
 
-function cutePopUp() {
-    hideText()
-    alert("you got the answer right!")
-    theDelay()
-}
+  function cutePopUp() {
+    hideText();
+    // console.log("you got the answer right!");
+    $(".image").show().html(triviaQuestions[theQuestion].correctAnswer)
+    theDelay();
+  }
 
-function uglyPopUp() {
-    hideText()
-    console.log("you got it wrong") 
-    theDelay()  
-}
+  function uglyPopUp() {
+    let answerNumber = triviaQuestions[theQuestion].theAnswer
+    // console.log(answerNumber)
+    hideText();
+    // console.log("you got it wrong");
+    $(".image").show().html(triviaQuestions[theQuestion].incorrectAnswer)
 
-function theDelay() {    
+
+    $(".theResult").show().html(`The Correct Answer was ${triviaQuestions[theQuestion].answers[answerNumber]}`)
+    theDelay();
+  }
+
+  function theDelay() {
     theQuestion++;
-    questionChecker()
+    questionChecker();
     setTimeout(questionGenerator, 3000);
-    cle
     //resetTimer
-}
+  }
 
-function questionChecker() { 
-    
-    if (theQuestion == triviaQuestions.length){
-        console.log("you've reached the ends")
-        alert("You're done!")
-        gameStart = false
-    } 
-}
-
-// function theTimes() {
-//     clearInterval(questionCounter);
-//     console.log(`${questionCounter} is the question counter`)
-//     debugger
-//     questionCounter = setInterval(theTimer, 1000)
-// }
-
-// function theTimer() {
-        
-//     questionSeconds--
-//     $(".seconds").html(questionSeconds)
-//     if (questionSeconds === 0) {
-//         questionSeconds = 20
-//         theQuestion++
-//         setTimeout(questionGenerator, 3000);
-//         hideText()    
-//     }
-// }
-
-function theTimer(seconds) {
-
-    let timer = document.querySelector('.seconds');
-    timer.innerHTML = seconds;
+  function theTimer(seconds) {
+    let timer = $(".seconds");
+    timer.html(seconds);
     // every second
-    
-    interval = setInterval(function(){
-        // grab that number
-        let currentNumber = Number(timer.innerHTML);
-        // decrease it by 1
-        currentNumber--;
-        // display the new number on the screen
-        timer.innerHTML = currentNumber;
-        // if timer  = 0
+
+    interval = setInterval(function() {
+      // grab that number
+      let currentNumber = Number(timer.html());
+      // decrease it by 1
+      currentNumber--;
+      // display the new number on the screen
+      timer.html(currentNumber);
+    //   console.log(currentNumber);
+      // if timer  = 0
+
+      if (
+        $(".answer").on("click", function() {
+          clearInterval(interval);
+        })
+      )
         if (currentNumber === 0) {
-            // stop timer
-            unansweredQuestions++
-            theQuestion++
-            clearInterval(interval);
-            setTimeout(questionGenerator, 3000);
-            hideText()            
+          // stop timer
+          unansweredQuestions++;
+
+        //   console.log(`you have ${unansweredQuestions} unanswered questions`);
+          theQuestion++;
+          clearInterval(interval);
+          setTimeout(questionGenerator, 3000);
+          hideText();
+          $(".question").show().html("C'mon - that was an easy one!");
+          $(".image").show().html("<img src='assets/images/seriously.gif' />")
+
         }
     }, 1000);
-}
+  }
 
-function hideText() {
-    $(".question").hide()
-    $(".timer").hide()
-    $(".answer").hide()
-    $(".theResult").hide()
-    $(".button").hide()
-}
+  function hideText() {
+    $(".question").hide();
+    $(".timer").hide();
+    $(".answer").hide();
+    $(".theResult").hide();
 
-function showText() {
-    $(".question").show()
-    $(".timer").show()
-    $(".answer").show()
-    $(".theResult").show()
-    $(".button").show()
-}
+  }
 
-}) // document ready end bracket
+  function showText() {
+    $(".question").show();
+    $(".timer").show();
+    $(".answer").show();
+  }
+
+  function questionChecker() {
+    if (theQuestion == triviaQuestions.length) {
+      clearInterval(interval);
+      console.log("you've reached the ends");
+      alert("You're done!");
+      gameStart = false;
+      hideText();
+      clearInterval(interval);
+    }
+  }
+}); // document ready end bracket
