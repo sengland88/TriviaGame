@@ -3,8 +3,8 @@ $(document).ready(function () {
 let theQuestion = 0
 let correctAnswers = 0
 let incorrectAnswers = 0
-let questionSeconds = 20
-var questionCounter
+// let questionSeconds = 20
+// var questionCounter
 let gameStart = false
 
 $(".answer").on("click", questionHandler)
@@ -18,9 +18,9 @@ $(".button").on("click" , function() {
 function questionGenerator() {    
 
     if (gameStart) {
-        //resetTimer
+
         showText()
-        theTimes()
+        theTimer(20)
 
         $(".question").html(triviaQuestions[theQuestion].question)
         console.log(triviaQuestions[theQuestion].question)
@@ -72,6 +72,7 @@ function theDelay() {
     theQuestion++;
     questionChecker()
     setTimeout(questionGenerator, 3000);
+    cle
     //resetTimer
 }
 
@@ -84,46 +85,48 @@ function questionChecker() {
     } 
 }
 
-function theTimes() {
-    clearInterval(questionCounter);
-    questionCounter = setInterval(theTimer, 1000)
-}
-
-function theTimer() {
-        
-    questionSeconds--
-    $(".seconds").html(questionSeconds)
-    if (questionSeconds === 0) {
-        questionSeconds = 20
-        theQuestion++
-        setTimeout(questionGenerator, 3000);
-        hideText()    
-    }
-}
-
-// function theTimer(seconds) {
-
-//     let timer = document.querySelector('.seconds');
-//     timer.innerHTML = seconds;
-//     // every second
-
-//     interval = setInterval(function(){
-//         // grab that number
-//         let currentNumber = Number(timer.innerHTML);
-//         // decrease it by 1
-//         currentNumber--;
-//         // display the new number on the screen
-//         timer.innerHTML = currentNumber;
-//         // if timer  = 0
-//         if (currentNumber === 0) {
-//             // stop timer
-//             theQuestion++
-//             clearInterval(interval);
-//             setTimeout(questionGenerator, 3000);
-//             hideText()            
-//         }
-//     }, 1000);
+// function theTimes() {
+//     clearInterval(questionCounter);
+//     console.log(`${questionCounter} is the question counter`)
+//     debugger
+//     questionCounter = setInterval(theTimer, 1000)
 // }
+
+// function theTimer() {
+        
+//     questionSeconds--
+//     $(".seconds").html(questionSeconds)
+//     if (questionSeconds === 0) {
+//         questionSeconds = 20
+//         theQuestion++
+//         setTimeout(questionGenerator, 3000);
+//         hideText()    
+//     }
+// }
+
+function theTimer(seconds) {
+
+    let timer = document.querySelector('.seconds');
+    timer.innerHTML = seconds;
+    // every second
+
+    interval = setInterval(function(){
+        // grab that number
+        let currentNumber = Number(timer.innerHTML);
+        // decrease it by 1
+        currentNumber--;
+        // display the new number on the screen
+        timer.innerHTML = currentNumber;
+        // if timer  = 0
+        if (currentNumber === 0) {
+            // stop timer
+            theQuestion++
+            clearInterval(interval);
+            setTimeout(questionGenerator, 3000);
+            hideText()            
+        }
+    }, 1000);
+}
 
 function hideText() {
     $(".question").hide()
