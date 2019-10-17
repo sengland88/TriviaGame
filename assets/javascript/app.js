@@ -3,6 +3,7 @@ $(document).ready(function () {
 let theQuestion = 0
 let correctAnswers = 0
 let incorrectAnswers = 0
+let unansweredQuestions = 0
 // let questionSeconds = 20
 // var questionCounter
 let gameStart = false
@@ -109,7 +110,7 @@ function theTimer(seconds) {
     let timer = document.querySelector('.seconds');
     timer.innerHTML = seconds;
     // every second
-
+    
     interval = setInterval(function(){
         // grab that number
         let currentNumber = Number(timer.innerHTML);
@@ -120,6 +121,7 @@ function theTimer(seconds) {
         // if timer  = 0
         if (currentNumber === 0) {
             // stop timer
+            unansweredQuestions++
             theQuestion++
             clearInterval(interval);
             setTimeout(questionGenerator, 3000);
