@@ -10,7 +10,7 @@ let triviaQuestions = [
     {question: "What does Cristina Yang call Alex Karev?",
         answers: ["Her Person" , "Evil Spawn" , "Four" , "Trash Can"], 
         theAnswer: 1,
-        correctAnswer: "<img src='assets/images/evilspawn.gif' />",
+        correctAnswer: "<img src='assets/images/spawn.gif' />",
         incorrectAnswer: "<img src='assets/images/soSad.gif' />",
     },
 
