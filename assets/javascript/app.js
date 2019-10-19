@@ -47,6 +47,9 @@ $(document).ready(function() {
   function questionHandler() {
     clearInterval(interval);
     questionChecker();
+    console.log(unansweredQuestions)
+    console.log(correctAnswers)
+    console.log(incorrectAnswers)
 
     if (gameStart === false) {
       return false;
