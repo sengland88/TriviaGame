@@ -20,6 +20,9 @@ $(document).ready(function() {
     $("#jumbo").hide()
     $("#intro").hide()
     $(".stats").hide()
+    correctAnswers = 0;
+    incorrectAnswers = 0;
+    unansweredQuestions = 0;
   });
 
   // this function generates the question
@@ -158,9 +161,7 @@ $(document).ready(function() {
 
       gameStart = false;
       theQuestion = 0;      
-      correctAnswers = 0;
-      incorrectAnswers = 0;
-      unansweredQuestions = 0;
+
 
       $("#intro").show().text(`You can play again by clicking the button below`)
       $("#button").show().text(`Play again? Click here!`)
