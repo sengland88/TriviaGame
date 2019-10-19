@@ -1,0 +1,19 @@
+body {
+    background-image: url("../images/background.jpg");
+    background-size: 100%;
+    font-family: 'Marcellus SC', serif;
+}
+
+.container {
+    background-color:grey ;
+    border-radius: 5%
+}
+
+.options {
+    font-size: 18px;
+}
+
+#timer {
+    font-size: 42px;
+}
+

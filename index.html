@@ -4,51 +4,94 @@
     <title>Grey's Anatomy Trivia Game</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Marcellus+SC&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
+
 <body>
     
-    <div class="container">
+    <div class="container mt-4 mb-6">
 
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="jumbotron">
+                    <div class="jumbotron mt-5 text-center">
                             <h1>Grey's Anatomy Trivia</h1>
 
-                            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                            <p class="lead"><img class="img-fluid" id="jumbo" alt="Responsive image" src="assets/images/banner.jpg" alt=""></p>
                             <hr class="my-4">
-                            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-                            <button class="button">Start</button>
+                            <p id="intro">With 16 seasons (and counting), the doctors at Seattle Grace have experienced more than their fair share of tragedies and heartbreak. Test your knowledge of their lives by playing the Grey's Anatomy Trivia. To start, click the button below.</p>
+                            <button class="button" id="button">Click Here to Test Your Knowledge</button>
                     </div>
                 </div>                    
             </div>
 
             <div class="row">
-                    <div class="col-sm-12">
-                        One of three columns
-                    </div>                    
+
+                <div class="col-sm-12">
+
+                    <h3 class="d-flex justify-content-center" id="question"></h3>
+
                 </div>
-        
+
+            </div>
+
+
+            <div class="row d-flex justify-content-center">
+                
+                <div class="col-sm-5">
+
+                        <p class="options">1) <span id="answerOne" class="answer" value=0></span></p>
+                        <p class="options">2) <span id="answerTwo" class="answer" value=1></span></p>
+
+                </div>
+            
+                <div class="col-sm-5">                        
+
+                        <p class="options">3) <span id="answerThree" class="answer" value=2></span></p>
+                        <p class="options">4) <span id="answerFour" class="answer" value=3></span></p>
+                    
+                </div>
+
+            </div>
+
+            <div class="row">
+            
+                <div class="col-sm-12 text-center">
+
+                        <p id="timer">Seconds Remaining: <span id="seconds"></span></p>
+
+                </div>
+
+            </div>
+
+            <div class="row d-flex justify-content-center">
+            
+                <div class="col-sm-12">
+
+                    <p id="theResult" class="text-center"></p>
+                    <div id="image" class="mt-5 mb-5 text-center" height></div>
+            
+                    <p class="stats">Correct Answers: <span id="correct"></span></p>
+                    <p class="stats">Incorrect Questions: <span id="incorrect"></span></p>
+                    <p class="stats">Unanswered Questions: <span id="unanswered"></span></p>
+
+                </div>
+
+            </div>         
 
 
         
 
-        <p class="question"></p>
+        <!-- <p class="question"></p>
 
         <p class="answerOne answer" value=0></p>
         <p class="answerTwo answer" value=1></p>
         <p class="answerThree answer" value=2></p>
-        <p class="answerFour answer" value=3></p>
+        <p class="answerFour answer" value=3></p> -->
 
-        <p class="timer">Seconds Remaining: <span class="seconds"></span></p>
-
-        <p class="theResult"></p>
-        <div class="image"></div>
-
-        <p class="stats"></p>
-
+        <!-- <p class="timer">Seconds Remaining: <span class="seconds"></span></p> -->
 
     </div>
 

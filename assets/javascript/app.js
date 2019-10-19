@@ -2,7 +2,6 @@ $(document).ready(function() {
 
   hideText()
 
-
   let theQuestion = 0;
   let correctAnswers = 0;
   let incorrectAnswers = 0;
@@ -10,14 +9,17 @@ $(document).ready(function() {
   let gameStart = false;
 
 
-  $(".button").show();
+  $("#button").show();
  
   $(".answer").on("click", questionHandler);
 
-  $(".button").on("click", function() {
+  $("#button").on("click", function() {
     // console.log("you clicked the start button");
     gameStart = true;
     questionGenerator();
+    $("#jumbo").hide()
+    $("#intro").hide()
+    $(".stats").hide()
   });
 
   function questionGenerator() {
@@ -26,14 +28,14 @@ $(document).ready(function() {
     if (gameStart) {
         showText();        
         theTimer(5);
-        $(".image").html(" ")
-        $(".button").hide()
-        $(".theResult").hide()
-        $(".question").html(triviaQuestions[theQuestion].question);
-        $(".answerOne").html(triviaQuestions[theQuestion].answers[0]);
-        $(".answerTwo").html(triviaQuestions[theQuestion].answers[1]);
-        $(".answerThree").html(triviaQuestions[theQuestion].answers[2]);
-        $(".answerFour").html(triviaQuestions[theQuestion].answers[3]);
+        $("#image").html(" ")
+        $("#button").hide()
+        $("#theResult").hide()
+        $("#question").html(triviaQuestions[theQuestion].question);
+        $("#answerOne").html(triviaQuestions[theQuestion].answers[0]);
+        $("#answerTwo").html(triviaQuestions[theQuestion].answers[1]);
+        $("#answerThree").html(triviaQuestions[theQuestion].answers[2]);
+        $("#answerFour").html(triviaQuestions[theQuestion].answers[3]);
     }
   }
 
@@ -65,7 +67,7 @@ $(document).ready(function() {
   function cutePopUp() {
     hideText();
     // console.log("you got the answer right!");
-    $(".image").show().html(triviaQuestions[theQuestion].correctAnswer)
+    $("#image").show().html(triviaQuestions[theQuestion].correctAnswer)
     theDelay();
   }
 
@@ -74,10 +76,10 @@ $(document).ready(function() {
     // console.log(answerNumber)
     hideText();
     // console.log("you got it wrong");
-    $(".image").show().html(triviaQuestions[theQuestion].incorrectAnswer)
+    $("#image").show().html(triviaQuestions[theQuestion].incorrectAnswer)
 
 
-    $(".theResult").show().html(`The Correct Answer was ${triviaQuestions[theQuestion].answers[answerNumber]}`)
+    $("#theResult").show().html(`The Correct Answer was ${triviaQuestions[theQuestion].answers[answerNumber]}`)
     theDelay();
   }
 
@@ -89,7 +91,7 @@ $(document).ready(function() {
   }
 
   function theTimer(seconds) {
-    let timer = $(".seconds");
+    let timer = $("#seconds");
     timer.html(seconds);
     // every second
 
@@ -117,35 +119,50 @@ $(document).ready(function() {
           clearInterval(interval);
           setTimeout(questionGenerator, 3000);
           hideText();
-          $(".question").show().html("C'mon - that was an easy one!");
-          $(".image").show().html("<img src='assets/images/seriously.gif' />")
-
+          $("#question").show().html("C'mon - that was an easy one!");
+          $("#image").show().html("<img src='assets/images/seriously.gif' />")
+          $("#theResult").show().html(`The Correct Answer was ${triviaQuestions[theQuestion].answers[answerNumber]}`)
         }
     }, 1000);
   }
 
   function hideText() {
-    $(".question").hide();
-    $(".timer").hide();
+    $("#question").hide();
+    $("#timer").hide();
     $(".answer").hide();
-    $(".theResult").hide();
+    $("#theResult").hide();
+    $(".options").hide();
+    $(".stats").hide()
 
   }
 
   function showText() {
-    $(".question").show();
-    $(".timer").show();
+    $("#question").show();
+    $("#timer").show();
     $(".answer").show();
+    $(".options").show();
   }
 
   function questionChecker() {
     if (theQuestion == triviaQuestions.length) {
-      clearInterval(interval);
-      console.log("you've reached the ends");
-      alert("You're done!");
-      gameStart = false;
+      
+      $("#question").text(`Your Results!`);
+      $("#image").hide()      
       hideText();
+      
       clearInterval(interval);
+      console.log("you've reached the end");
+      alert("You're done!");
+
+      theQuestion = 0;
+      gameStart = false;  
+
+      $("#intro").show().text(`You can play again by clicking the button below`)
+      $("#button").show().text(`Play again? Click here!`)
+      $(".stats").show()
+      $("#correct").show().text(`${correctAnswers}`)
+      $("#incorrect").show().text(`${incorrectAnswers}`)
+      $("#unanswered").show().text(`${unansweredQuestions}`)
     }
   }
 }); // document ready end bracket
