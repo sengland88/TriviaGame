@@ -74,6 +74,7 @@ $(document).ready(function() {
   //this pop up displays when the correct answer is chosen
   function cutePopUp() {
     hideText();
+    $("#theResult").show().html(`Correct!`)
     $("#image").show().html(triviaQuestions[theQuestion].correctAnswer)
     theDelay();
   }
