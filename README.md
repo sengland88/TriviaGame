@@ -1,5 +1,19 @@
 # TriviaGame
 
+<h2>Project Name</h2>
+
+Greys's Anatomy Trivia
+
+<h2>Concept</h2>
+
+A web application that ultiizies Javascript to display a series of timed questions with answeres
+
+<h2>Project Overview</h2>
+
+A computer and mobile-friendly web application utilizes JavaScript to display a series of timed questions (along with the answers). When the user makes a selection, a GIF, which is stored locally, will display, either alerting the user if they were incorrect or correct in their selection. In the background, there is code to keep track of number of incorrect, correct or unanswered responses. Once the trivia is finished, the results will be displayed.
+
+<h2>Process</h2>
+
 i started by creating my questions and answers. I opted to create another key/value pair to hold the index of the correct answer. 
 
 i created the for loop that iterated through the questions. 
